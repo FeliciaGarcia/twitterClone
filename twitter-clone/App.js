@@ -26,3 +26,10 @@ export default class App extends Component {
       if (!this.state.isReady) {
         return <AppLoading />;
       }
+      return (
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    );
+  }
+}
