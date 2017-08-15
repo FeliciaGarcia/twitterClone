@@ -12,3 +12,10 @@ export default class App extends Component {
       isReady: false,
     }
   }
+  async componentWillMount() {
+      await Font.loadAsync({
+        'Roboto': require('native-base/Fonts/Roboto.ttf'),
+        'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+        'Pacifico': require('./app/assets/fonts/Pacifico.ttf'),
+        'Ionicons': require('native-base/Fonts/Ionicons.ttf'),
+      });
