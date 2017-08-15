@@ -15,3 +15,7 @@ const scenes = Actions.create(
     <Scene key="newPost" component={NewPost} title="Make a new post" />
   </Scene>
 );
+
+export default () => (
+  <Router scenes={scenes} />
+);
