@@ -19,3 +19,6 @@ export default class App extends Component {
         'Pacifico': require('./app/assets/fonts/Pacifico.ttf'),
         'Ionicons': require('native-base/Fonts/Ionicons.ttf'),
       });
+
+      this.setState({isReady: true});
+  }
