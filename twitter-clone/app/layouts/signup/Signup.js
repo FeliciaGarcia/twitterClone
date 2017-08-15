@@ -45,3 +45,23 @@ class Signup extends Component {
       error: '',
     };
   }
+
+  onSubmit(){
+  const error = validate(this.state);
+  if (error) {
+    this.setState({ error })
+  } else {
+    this.checkUsername(this.state.username);
+  }
+}
+checkUsername(username){
+  axios.get(`https://api.cosmicjs.com/v1/${cosmicConfig.bucket.slug}/object-type/users/search?metafield_key=username&metafield_value=${username}`)
+  .then(res => res.data)
+  .then(data => {
+    if (data.objects) {
+      this.setState({ error: 'Username not available'})
+    } else {
+      this.props.addUser(this.state);
+    }
+  })
+}
